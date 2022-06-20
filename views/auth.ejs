@@ -12,7 +12,43 @@
 <body>
     <div class="container">
         <div class="vh-100 d-flex justify-content-center align-items-center">
-            <h1>Auth page</h1>
+            <div class="col-md-8 card-body border border-primary rounded-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-1">
+                            <h3>Register</h3>
+                            <hr class="border border-primary" />
+                            <form action="/register" method="post">
+                                <label class="form-label" for="name">Name</label>
+                                <input class="form-control" id="name" placeholder="Name" name="name" />
+                                <br />
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" id="username" placeholder="Name" name="username" />
+                                <br />
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" id="password" placeholder="Password" name="password" />
+                                <br />
+                                <button class="w-100 btn btn-primary">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="m-1">
+                            <h3>Login</h3>
+                            <hr class="border border-primary" />
+                            <form action="/login" method="post">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" id="username" placeholder="Name" name="username" />
+                                <br />
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" id="password" placeholder="Password" name="password" />
+                                <br />
+                                <button class="w-100 btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
