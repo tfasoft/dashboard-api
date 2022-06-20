@@ -20,7 +20,8 @@ app.set('view engine', 'ejs');
 
 app.use(session({
     secret: 'thesecretkey',
-    resave: true,
+    resave: false,
+    cookie: { maxAge: oneDay },
     saveUninitialized: true
 }))
 
