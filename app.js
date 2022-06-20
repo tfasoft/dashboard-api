@@ -32,7 +32,7 @@ const mdb = `mongodb+srv://${env.MONGO_USERNAME}:${env.MONGO_PASSWORD}@${env.MON
 mongoose.connect(mdb)
     .then((connection) => {
         console.log('Connected');
-        app.listen(5000);
+        app.listen(env.PORT || 5000);
     })
     .catch((error) => console.log(error));
 
