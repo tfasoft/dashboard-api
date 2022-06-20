@@ -39,13 +39,13 @@
                 <h3>Here are some helps you may need!</h3>
                 <br />
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1 card-body shadow-5-soft">
                             <h5 class="fw-bold">Get access token</h5>
                             <p>If you want to get your <b>Access token</b>, head over to <b class="text-primary"><i class="fa fa-bank"></i> Account</b> and there will be your access token.</p>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1 card-body shadow-5-soft">
                             <h5 class="fw-bold">Change your account settings</h5>
                             <p>To change any field or stuff, open <b class="text-primary"><i class="fa fa-cogs"></i> Settings</b> and then you can change anything.</p>
@@ -54,16 +54,74 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="tab-2">
-                Tab 2 content
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <h2 class="text-primary">Change name</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <form action="/update/name" method="post">
+                                <label class="form-label" for="name">Name</label>
+                                <input placeholder="Name" value="<%= user.name %>" class="form-control" id="name" name="name" />
+                                <br />
+                                <button type="submit" class="btn btn-primary fw-bold">Change name</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border border-primary" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <h2 class="text-primary">Change password</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <form action="/update/password" method="post">
+                                <label class="form-label" for="current">Current password</label>
+                                <input placeholder="Current password" type="password" class="form-control" id="current" name="current" />
+                                <br />
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-label" for="new">New password</label>
+                                        <input placeholder="New password" type="password" class="form-control" id="new" name="new" />
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label" for="repeat">Repeat password</label>
+                                        <input placeholder="Repeat password" type="password" class="form-control" id="repeat" name="repeat" />
+                                    </div>
+                                </div>
+                                <br />
+                                <button type="submit" class="btn btn-primary fw-bold">Change password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border border-danger" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <h2 class="text-danger">Logout</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="m-1">
+                            <a href="/logout" class="btn btn-danger fw-bold shadow-0">Logout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="tabs-3" role="tabpanel" aria-labelledby="tab-3">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <h2 class="text-primary">Access token</h2>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <label class="form-label" for="token">Access token</label>
                             <div class="input-group mb-3">
@@ -83,12 +141,12 @@
                 </div>
                 <hr class="border border-primary" />
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <h2 class="text-primary">Access token</h2>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <label class="form-label" for="token">Access token</label>
                             <div class="input-group mb-3">
@@ -108,12 +166,12 @@
                 </div>
                 <hr class="border border-primary" />
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <h2 class="text-primary">Access token</h2>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="m-1">
                             <label class="form-label" for="token">Access token</label>
                             <div class="input-group mb-3">
