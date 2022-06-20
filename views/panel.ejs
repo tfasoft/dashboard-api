@@ -28,12 +28,16 @@
                     value="<%= user.access_token %>"
                     readonly
                 />
-                <span class="input-group-text" id="basic-addon2"><i class="fa fa-copy text-primary pointer"></i></span>
+                <span class="input-group-text" id="basic-addon2">
+                    <i data-clipboard-target="#token" class="fa fa-copy text-primary pointer cat"></i>
+                </span>
             </div>
         </div>
     </div>
 
+    <script src="js/clipboard.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/mdb.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
