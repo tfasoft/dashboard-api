@@ -1,0 +1,33 @@
+{
+  "name": "telegram-factor-authentication-dashboard",
+  "version": "1.0.0",
+  "description": "Telegram factor authentication dashboard.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackIQ/telegram-factor-authentication-dashboard.git"
+  },
+  "keywords": [
+    "authentication",
+    "dashboard",
+    "telegram",
+    "telegraf",
+    "js",
+    "api"
+  ],
+  "author": "Amirhossein Mohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlackIQ/telegram-factor-authentication-dashboard/issues"
+  },
+  "homepage": "https://github.com/BlackIQ/telegram-factor-authentication-dashboard#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "randomstring": "^1.2.2"
+  }
+}
