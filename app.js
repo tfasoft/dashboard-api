@@ -41,7 +41,13 @@ app.get('/', (req, res) => {
 
 app.get('/panel', (req, res) => {
     if (!req.session.user) res.redirect('/auth');
-    else res.render('panel');
+    else {
+        Admin.findById(req.session.user)
+            .then((user) => {
+                res.render('panel', {user});
+            })
+            .catch((error) => res.send(error));
+    }
 });
 
 app.get('/auth', (req, res) => {
