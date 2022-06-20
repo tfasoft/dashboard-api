@@ -1,19 +1,31 @@
 const express = require('express');
+const sessions = require('express-session');
 const mongoose = require('mongoose');
+
 const randomstring = require('randomstring');
 
 const Admin = require('./modules/admin');
 const User = require('./modules/user');
+const session = require('express-session');
 
 require('dotenv').config();
 const env = process.env;
 
+const oneDay = 1000 * 60 * 60 * 24;
+
 const app = express();
+
+app.set('trust proxy', 1);
+app.set('view engine', 'ejs');
+
+app.use(session({
+    secret: 'thesecretkey',
+    resave: true,
+    saveUninitialized: true
+}))
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
-
-app.set('view engine', 'ejs');
 
 const mdb = `mongodb+srv://${env.MONGO_USERNAME}:${env.MONGO_PASSWORD}@${env.MONGO_DATABASE}.ji4jf.mongodb.net/${env.MONGO_COLLECTION}?retryWrites=true&w=majority`;
 mongoose.connect(mdb)
@@ -28,17 +40,28 @@ app.get('/', (req, res) => {
 });
 
 app.get('/panel', (req, res) => {
-    res.render('panel');
+    if (!req.session.user) res.redirect('/auth');
+    else res.render('panel');
 });
 
 app.get('/auth', (req, res) => {
-    res.render('auth');
+    if (req.session.user) res.redirect('/panel');
+    else res.render('auth');
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 app.post('/login', (req, res) => {
     Admin.findOne(req.body)
         .orFail((fail) => res.send('User not found.'))
-        .then((user) => res.send(user))
+        .then((user) => {
+            req.session.user = user.id;
+
+            res.redirect('/panel');
+        })
         .catch((error) => res.send(error));
 });
 
@@ -53,6 +76,10 @@ app.post('/register', (req, res) => {
     const newAdmin = new Admin(data);
 
     newAdmin.save()
-        .then((result) => res.redirect('/panel'))
+        .then((result) => {
+            req.session.user = result.id;
+
+            res.redirect('/panel');
+        })
         .catch((error) => res.send(error));
 });
