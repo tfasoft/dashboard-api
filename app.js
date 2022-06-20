@@ -1,5 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const randomstring = require('randomstring');
+
+const Admin = require('./modules/admin');
+const User = require('./modules/user');
 
 require('dotenv').config();
 const env = process.env;
@@ -29,4 +33,26 @@ app.get('/panel', (req, res) => {
 
 app.get('/auth', (req, res) => {
     res.render('auth');
+});
+
+app.post('/login', (req, res) => {
+    Admin.findOne(req.body)
+        .orFail((fail) => res.send('User not found.'))
+        .then((user) => res.send(user))
+        .catch((error) => res.send(error));
+});
+
+app.post('/register', (req, res) => {
+    const data = {
+        access_token: randomstring.generate({length: 25, charset: 'alphabetic'}),
+        name: req.body.name,
+        username: req.body.username,
+        password: req.body.password,
+    };
+
+    const newAdmin = new Admin(data);
+
+    newAdmin.save()
+        .then((result) => res.redirect('/panel'))
+        .catch((error) => res.send(error));
 });
