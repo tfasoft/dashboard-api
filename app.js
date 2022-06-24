@@ -63,11 +63,14 @@ app.get('/logout', (req, res) => {
 
 app.post('/login', (req, res) => {
     Admin.findOne(req.body)
-        .orFail((fail) => res.send('User not found.'))
         .then((user) => {
-            req.session.user = user.id;
+            if (user === null) {
+                res.send('User not found.')
+            } else {
+                req.session.user = user.id;
 
-            res.redirect('/panel');
+                res.redirect('/panel');
+            }
         })
         .catch((error) => res.send(error));
 });
