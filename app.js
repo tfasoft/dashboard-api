@@ -1,12 +1,11 @@
 const express = require('express');
-const sessions = require('express-session');
+const session = require('express-session');
 const mongoose = require('mongoose');
 
 const randomstring = require('randomstring');
 
 const Admin = require('./modules/admin');
 const User = require('./modules/user');
-const session = require('express-session');
 
 require('dotenv').config();
 const env = process.env;
