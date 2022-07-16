@@ -15,13 +15,13 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.set('json spaces', 2);
 
-// const mdb = `mongodb+srv://${env.MONGO_USERNAME}:${env.MONGO_PASSWORD}@${env.MONGO_DATABASE}.ji4jf.mongodb.net/${env.MONGO_COLLECTION}?retryWrites=true&w=majority`;
-// mongoose.connect(mdb)
-//     .then((connection) => {
-//         console.log('Connected');
-//         app.listen(env.PORT || 5000);
-//     })
-//     .catch((error) => console.log(error));
+const mdb = `mongodb+srv://${env.MONGO_USERNAME}:${env.MONGO_PASSWORD}@${env.MONGO_DATABASE}.ji4jf.mongodb.net/${env.MONGO_COLLECTION}?retryWrites=true&w=majority`;
+mongoose.connect(mdb)
+    .then((connection) => {
+        console.log('Connected');
+        app.listen(env.PORT || 5000);
+    })
+    .catch((error) => console.log(error));
 
 app.post('/', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -38,34 +38,63 @@ app.post('/', (req, res) => {
 app.post('/login', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
 
-    const data = req.body;
+    Admin.findOne(req.body)
+        .then((user) => {
+            if (user === null) {
+                const outData = {
+                    error: "user not found"
+                }
 
-    if (data.username === "amir" && data.password === "amir") {
-        const out = {
-            user: {
-                uid: "amir"
+                res.status(401);
+                res.send(outData);
+            } else {
+                const outData = {
+                    user
+                }
+
+                res.status(200);
+                res.send(outData);
             }
-        }
+        })
+        .catch((error) => {
+            const outData = {
+                error: error.message
+            }
 
-        res.status(200);
-        res.send(out);
-    } else {
-        const out = {
-            message: "user not found"
-        }
-
-        res.status(401);
-        res.send(out);
-    }
+            res.status(500);
+            res.send(outData);
+        });
 });
 
 app.post('/register', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
 
-    const userData = req.body;
+    const data = {
+        access_token: randomstring.generate({length: 25, charset: 'alphabetic'}),
+        name: req.body.name,
+        username: req.body.username,
+        password: req.body.password,
+    };
 
-    res.status(200);
-    res.send(userData);
+    const newAdmin = new Admin(data);
+
+    newAdmin.save()
+        .then((user) => {
+            const outData = {
+                user
+            }
+
+            res.status(200);
+            res.send(outData);
+        })
+        .catch((error) => {
+            const outData = {
+                error: error.message
+            }
+
+            res.status(500);
+            res.send(outData);
+        });
 });
 
-app.listen(env.PORT || 5000);
+// app.listen(env.PORT || 5000);
