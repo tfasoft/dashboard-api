@@ -33,3 +33,19 @@ app.get('/', (req, res) => {
 
     res.send(object);
 });
+
+app.post('/api/login', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
+    const userData = req.body;
+
+    res.send(userData);
+});
+
+app.post('/api/register', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+
+    const userData = req.body;
+
+    res.send(userData);
+});
