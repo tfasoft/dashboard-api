@@ -1,1 +1,0 @@
-const copy = new ClipboardJS('.cat');
