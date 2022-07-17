@@ -49,7 +49,7 @@ app.post('/login', (req, res) => {
                 res.send(outData);
             } else {
                 const outData = {
-                    user
+                    id: user._id
                 }
 
                 res.status(200);
@@ -81,11 +81,36 @@ app.post('/register', (req, res) => {
     newAdmin.save()
         .then((user) => {
             const outData = {
-                user
+                id: user._id
             }
 
             res.status(200);
             res.send(outData);
+        })
+        .catch((error) => {
+            const outData = {
+                error: error.message
+            }
+
+            res.status(500);
+            res.send(outData);
+        });
+});
+
+app.post('/get/admin', (req, res) => {
+    Admin.findById(req.body.uid)
+        .then((user) => {
+            if (user === null) {
+                const outData = {
+                    error: "user not found"
+                }
+
+                res.status(401);
+                res.send(outData);
+            } else {
+                res.status(200);
+                res.send(user);
+            }
         })
         .catch((error) => {
             const outData = {
