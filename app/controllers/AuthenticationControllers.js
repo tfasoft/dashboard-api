@@ -28,7 +28,7 @@ const login = (req, res) => {
                 error: error.message
             }
 
-            res.status(500);
+            res.status(401);
             res.send(outData);
         });
 }
@@ -44,8 +44,8 @@ const register = (req, res) => {
         password: req.body.password,
     };
 
-    const newAdmin = new Admin(data);
 
+    const newAdmin = new Admin(data);
     newAdmin.save()
         .then((user) => {
             const outData = {
@@ -60,7 +60,7 @@ const register = (req, res) => {
                 error: error.message
             }
 
-            res.status(500);
+            res.status(401);
             res.send(outData);
         });
 }
