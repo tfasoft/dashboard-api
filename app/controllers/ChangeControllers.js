@@ -71,7 +71,7 @@ const changePassword = (req, res) => {
 
 // Delete user
 const deleteUser = (req, res) => {
-    Admin.deleteOne({ id: req.body.id })
+    Admin.findByIdAndRemove(req.body.id)
         .then((result) => {
             const outData = {
                 "message": "user deleted"
