@@ -1,3 +1,9 @@
-# Telegram Factor Authentication - Dashboard
+# Telegram Factor Authentication Dashboard - Back-End
 
-Telegram Factor Authentication dashboard.
+**TFA Dashboard** is a **MERN** application. This is the Back-End part of it.
+
+> We create the Back-End with **MVC** architecture.
+
+## Front-End
+
+Front-End is available [here](https://github.com/tele-fa/dashboard-frontend).
