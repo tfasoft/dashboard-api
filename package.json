@@ -1,7 +1,7 @@
 {
-  "name": "telegram-factor-authentication-dashboard",
+  "name": "tfa-dashboard-backend",
   "version": "1.0.0",
-  "description": "Telegram factor authentication dashboard.",
+  "description": "Telegram factor authentication dashboard backend.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlackIQ/telegram-factor-authentication-dashboard.git"
+    "url": "git+https://github.com/tele-fa/dashboard-backend.git"
   },
   "keywords": [
     "authentication",
@@ -22,9 +22,9 @@
   "author": "Amirhossein Mohammadi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BlackIQ/telegram-factor-authentication-dashboard/issues"
+    "url": "https://github.com/tele-fa/dashboard-backend/issues"
   },
-  "homepage": "https://github.com/BlackIQ/telegram-factor-authentication-dashboard#readme",
+  "homepage": "https://github.com/tele-fa/dashboard-backend#readme",
   "dependencies": {
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
