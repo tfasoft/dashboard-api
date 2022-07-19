@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const routes = require('./routes/routes');
 const AuthenticationRoutes = require('./routes/AthenticationRoutes');
@@ -9,6 +10,9 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
+app.use(cors());
+
 app.set('json spaces', 2);
 
 app.use('/auth', AuthenticationRoutes);
