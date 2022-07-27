@@ -42,6 +42,7 @@ const register = (req, res) => {
         name: req.body.name,
         username: req.body.username,
         password: req.body.password,
+        service_type: req.body.service_type,
     };
 
 
