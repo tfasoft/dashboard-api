@@ -20,6 +20,10 @@ const adminModule = new Schema({
     password: {
         type: String,
         required: true
+    },
+    service_type: {
+        type: String,
+        required: true,
     }
 }, {timestamps: true});
 
