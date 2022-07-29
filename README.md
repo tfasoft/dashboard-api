@@ -6,4 +6,4 @@
 
 ## Front-End
 
-Front-End is available [here](https://github.com/tele-fa/dashboard-frontend).
+Front-End is available [here](https://github.com/tfasoft/dashboard-frontend).
