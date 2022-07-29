@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tele-fa/dashboard-backend.git"
+    "url": "git+https://github.com/tfasoft/dashboard-backend.git"
   },
   "keywords": [
     "authentication",
@@ -22,9 +22,9 @@
   "author": "Amirhossein Mohammadi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tele-fa/dashboard-backend/issues"
+    "url": "https://github.com/tfasoft/dashboard-backend/issues"
   },
-  "homepage": "https://github.com/tele-fa/dashboard-backend#readme",
+  "homepage": "https://github.com/tfasoft/dashboard-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
