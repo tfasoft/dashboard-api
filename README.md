@@ -1,4 +1,8 @@
-# Telegram Factor Authentication Dashboard - Back-End
+# TFAdashboard - Back-End
+
+> This repository is archived. We moved dashboard API to our main API service.
+
+---
 
 **TFA Dashboard** is a **MERN** application. This is the Back-End part of it.
 
