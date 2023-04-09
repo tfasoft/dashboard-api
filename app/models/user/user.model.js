@@ -34,4 +34,4 @@ const schema = Schema(
   }
 );
 
-export default mongodb.model("User", schema);
+export default mongodb.model("Admin", schema);
