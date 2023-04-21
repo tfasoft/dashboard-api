@@ -1,4 +1,4 @@
-import { User } from "$app/models/index.js";
+import { Admin } from "$app/models/index.js";
 import { createToken, ray } from "$app/functions/index.js";
 
 import md5 from "md5";
@@ -7,7 +7,7 @@ export const LOGIN = async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const user = await User.findOne({ username, password: md5(password) });
+    const user = await Admin.findOne({ username, password: md5(password) });
 
     if (user === null) {
       return res.status(401).send({
@@ -29,7 +29,7 @@ export const REGISTER = async (req, res) => {
     data.activate_token = ray.gen(30);
     data.active = false;
 
-    const user = await User.create(data);
+    const user = await Admin.create(data);
 
     res.status(200).send({ token: createToken(user._id), user });
   } catch (error) {

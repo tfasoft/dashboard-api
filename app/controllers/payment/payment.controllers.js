@@ -1,4 +1,4 @@
-import { User, Payment } from "$app/models/index.js";
+import { Admin, Payment } from "$app/models/index.js";
 
 import { zarinpal } from "$app/functions/index.js";
 
@@ -6,7 +6,7 @@ export const REQUEST = async (req, res) => {
   const { credits, user } = req.body;
 
   try {
-    const userData = await User.findById(user);
+    const userData = await Admin.findById(user);
 
     zarinpal
       .PaymentRequest({
@@ -65,7 +65,7 @@ export const VERIFY = async (req, res) => {
               $set: { verified: true, refid: response.RefID },
             });
 
-            await User.findByIdAndUpdate(String(payment.user), {
+            await Admin.findByIdAndUpdate(String(payment.user), {
               $inc: { credits: payment.amount },
             });
 
