@@ -1,4 +1,5 @@
 import { User } from "$app/models/index.js";
+import { ray } from "$app/functions/index.js";
 
 import md5 from "md5";
 
@@ -77,6 +78,26 @@ export const PASSWORD = async (req, res) => {
     } else {
       return res.status(401).send({ message: "Current password is wrong" });
     }
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+};
+
+export const RE_GENERATE = async (req, res) => {
+  const { id } = req.params;
+
+  const data = {
+    access_token: ray.gen(25),
+  };
+
+  try {
+    const user = await User.findByIdAndUpdate(id, { $set: data });
+
+    if (user === null) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    res.status(200).send({ message: "New access token generated" });
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
