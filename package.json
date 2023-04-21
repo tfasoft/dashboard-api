@@ -40,6 +40,7 @@
     "link-module-alias": "^1.2.0",
     "md5": "^2.3.0",
     "mongoose": "^6.5.0",
-    "rayid": "^2.1.2"
+    "rayid": "^2.1.2",
+    "zarinpal-checkout": "^0.2.7"
   }
 }
