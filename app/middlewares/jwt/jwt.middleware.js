@@ -6,7 +6,7 @@
 
 import JWT from "jsonwebtoken";
 
-import { User } from "$app/models/index.js";
+import { Admin } from "$app/models/index.js";
 import { appConfig } from "$app/config/index.js";
 
 const jwt = async (req, res, next) => {
@@ -28,7 +28,7 @@ const jwt = async (req, res, next) => {
   try {
     const { id } = JWT.verify(token, appConfig.secret);
 
-    const user = await User.findById(id);
+    const user = await Admin.findById(id);
 
     if (user === null) {
       return res.status(401).send({ message: "Unautorized" });
