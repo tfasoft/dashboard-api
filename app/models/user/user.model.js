@@ -1,4 +1,4 @@
-import { mongodb } from "$app/connections/index.js";
+import { user } from "$app/connections/index.js";
 
 import mongoose from "mongoose";
 
@@ -6,48 +6,32 @@ const { Schema } = mongoose;
 
 const schema = Schema(
   {
+    tid: {
+      type: String,
+      required: true,
+    },
+    token: {
+      type: String,
+      required: true,
+    },
+    mcode: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
-      required: true,
-      default: "",
-    },
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      default: "",
-    },
-    password: {
-      type: String,
-      required: true,
+      required: false,
       default: "",
     },
     email: {
       type: String,
-      required: true,
+      required: false,
       default: "",
     },
-    phoneNumber: {
+    password: {
       type: String,
-      required: true,
+      required: false,
       default: "",
-    },
-    companyName: {
-      type: String,
-      required: true,
-      default: "",
-    },
-    credits: {
-      type: Number,
-      default: 100,
-    },
-    activate_token: {
-      type: String,
-      default: "",
-    },
-    active: {
-      type: Boolean,
-      default: false,
     },
   },
   {
@@ -55,4 +39,4 @@ const schema = Schema(
   }
 );
 
-export default mongodb.model("Admin", schema);
+export default user.model("User", schema);

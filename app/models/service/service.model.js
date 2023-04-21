@@ -1,4 +1,4 @@
-import { mongodb } from "$app/connections/index.js";
+import { admin } from "$app/connections/index.js";
 
 import mongoose from "mongoose";
 
@@ -32,4 +32,4 @@ const schema = Schema(
   }
 );
 
-export default mongodb.model("Service", schema);
+export default admin.model("Service", schema);
