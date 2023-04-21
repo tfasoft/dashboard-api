@@ -28,6 +28,8 @@ export const REGISTER = async (req, res) => {
     data.password = md5(data.password);
     data.access_token = ray.gen(25);
     data.service_type = "beta";
+    data.activate_token = ray.gen(30);
+    data.active = false;
 
     const user = await User.create(data);
 
