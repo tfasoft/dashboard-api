@@ -28,6 +28,9 @@ const schema = Schema(
       type: String,
       required: true,
     },
+    credits: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
