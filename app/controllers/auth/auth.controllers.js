@@ -22,17 +22,13 @@ export const LOGIN = async (req, res) => {
 };
 
 export const REGISTER = async (req, res) => {
-  const { name, username, password } = req.body;
-
-  const data = {
-    access_token: ray.gen(25),
-    name: name,
-    username: username,
-    password: md5(password),
-    service_type: "beta",
-  };
+  const data = req.body;
 
   try {
+    data.password = md5(data.password);
+    data.access_token = ray.gen(25);
+    data.service_type = "beta";
+
     const user = await User.create(data);
 
     res.status(200).send({ token: createToken(user._id), user });

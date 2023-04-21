@@ -24,12 +24,21 @@ const schema = Schema(
       type: String,
       required: true,
     },
+    email: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
     service_type: {
       type: String,
       required: true,
     },
     credits: {
       type: Number,
+      default: 100,
     },
   },
   {
