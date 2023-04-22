@@ -87,6 +87,7 @@ export const MY_LOGS = async (req, res) => {
 
   try {
     const logs = await Log.find({ company: id })
+      .sort({ createdAt: -1 })
       .populate({
         path: "service",
         model: Service,
@@ -114,6 +115,7 @@ export const MY_ANALYTICS = async (req, res) => {
 
   try {
     const data = await Log.find({ company: id })
+      .sort({ createdAt: -1 })
       .populate({
         path: "service",
         model: Service,
