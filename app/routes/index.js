@@ -12,8 +12,8 @@ import { jwt } from "$app/middlewares/index.js";
 
 router.use("/activation", Activation);
 router.use("/payment", Payment);
-router.use("/services", jwt, Service);
-router.use("/users", jwt, User);
+router.use("/services", Service);
+router.use("/users", User);
 router.use("/auth", Auth);
 
 export default router;
