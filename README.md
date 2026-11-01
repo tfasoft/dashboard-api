@@ -1,7 +1,12 @@
-# TFASoft Dashboard | API
+# TFASoft Dashboard | Backend
 
-**TFA Status** is a **MERN** application. This is the Back-End part of it.
-
-## Front-End
-
-Front-End is available [here](https://github.com/tfasoft/dashboard-ui).
+> [!IMPORTANT]
+> **Repository Migration**
+>
+> This repository has moved to GitLab.
+>
+> All active development and maintenance now take place at:
+>
+> **[View the repository on GitLab](https://gitlab.com/tfasoft/dashboard/backend)**
+>
+> This GitHub repository is retained for historical reference. Please use the GitLab repository for the latest updates, issues, and contributions.
